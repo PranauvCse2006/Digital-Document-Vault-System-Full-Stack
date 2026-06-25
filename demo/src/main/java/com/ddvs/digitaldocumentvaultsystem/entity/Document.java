@@ -11,7 +11,9 @@ public class Document {
     private String checksum;
     private String uploadDate;
     private String lastModified;
+    
     private Integer version;
     private String securityClassification;
     private Long retentionPolicyId;
+
 }
