@@ -10,4 +10,6 @@ public class AuditLog {
     private String userAgent;
     private String outcome;
     private Boolean securityEvent;
+
+    
 }

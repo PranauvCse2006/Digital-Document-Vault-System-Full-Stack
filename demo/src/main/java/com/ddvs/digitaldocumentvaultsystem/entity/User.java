@@ -7,4 +7,6 @@ public class User {
     private String passwordHash;
     private String role;
     private String securityClearance;
+    
+
 }
