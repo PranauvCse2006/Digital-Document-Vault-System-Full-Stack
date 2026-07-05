@@ -12,9 +12,11 @@ import com.ddvs.digitaldocumentvaultsystem.entity.Document;
 import com.ddvs.digitaldocumentvaultsystem.service.DocumentService;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 
 
 @RestController
@@ -45,5 +47,11 @@ public class DocumentController {
     @GetMapping("/documents/{id}")
     public Document downloadDocument(@PathVariable Long id){
         return documentService.downloadDocument(id);
+    }
+
+    @PutMapping("/documents/{id}")
+    public Document updateDocument(@PathVariable Long id,
+                                @RequestBody Document document) {
+        return documentService.updateDocument(id, document);
     }
 }

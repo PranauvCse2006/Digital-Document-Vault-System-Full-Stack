@@ -10,6 +10,8 @@ public interface DocumentService {
 
     void deleteDocument(Long id);
 
+    Document updateDocument(Long id, Document document);
+
 
     
 }

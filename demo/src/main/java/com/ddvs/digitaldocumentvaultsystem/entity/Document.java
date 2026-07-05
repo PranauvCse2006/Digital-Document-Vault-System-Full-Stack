@@ -3,9 +3,14 @@ package com.ddvs.digitaldocumentvaultsystem.entity;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "documents")
 public class Document {
+    
+    
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
