@@ -15,7 +15,7 @@ function DocumentUploadForm(){
             <form onSubmit={handleSubmit}>
             <input
             type="text"
-            placeholer="Document Title"
+            placeholder="Document Title"
             value={documentTitle}
             onChange={(e)=>setDocumentTitle(e.target.value)}
             />
@@ -29,7 +29,7 @@ function DocumentUploadForm(){
 
             <input
             type="file"
-            onChange={(e)=>setFile(e.target.file[0])}
+            onChange={(e)=>setFile(e.target.files[0])}
             />
 
 
