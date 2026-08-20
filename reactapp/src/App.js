@@ -1,18 +1,27 @@
-import logo from './logo.svg';
+import DocumentList from './components/DocumentList';
 import './App.css';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import { getDocuments } from "./services/api";
 
 function App() {
-  const [name , setName]=useState("");
+  
+  const [documents,setDocuments]=useState([]);
+
+    useEffect(() => {
+        getDocuments()
+            .then((data) => {
+                setDocuments(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching documents:", error);
+            });
+    }, []);
   return (
     <div>
     <h1>Digital Document Vault System </h1>
-    <p>Securely store and manage your documents.</p>
-     <input
-                type="text"
-                onChange={(e) => setName(e.target.value)}
-            />
-    <h2>{name}</h2>
+    
+
+    <DocumentList documents={documents} />
     </div>
   );
 }
