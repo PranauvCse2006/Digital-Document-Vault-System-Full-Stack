@@ -8,24 +8,26 @@ function App() {
   
   const [documents,setDocuments]=useState([]);
 
+    function loadDocuments() {
+    getDocuments()
+        .then((data) => {
+            setDocuments(data);
+        })
+        .catch((error) => {
+            console.error("Error fetching documents:", error);
+        });
+    }
+
     useEffect(() => {
-        getDocuments()
-            .then((data) => {
-                setDocuments(data);
-            })
-            .catch((error) => {
-                console.error("Error fetching documents:", error);
-            });
+        loadDocuments();
     }, []);
   return (
     <div>
     <h1>Digital Document Vault System </h1>
-    <DocumentUploadForm />
+    <DocumentUploadForm onUploadSuccess={loadDocuments} />
 
     <DocumentList documents={documents} />
-    
 
-    <DocumentList documents={documents} />
     </div>
   );
 }

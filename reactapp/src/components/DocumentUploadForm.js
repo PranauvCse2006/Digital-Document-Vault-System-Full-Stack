@@ -1,6 +1,6 @@
 import {useState} from "react";
 import { uploadDocument } from "../services/api";
-function DocumentUploadForm(){
+function DocumentUploadForm({ onUploadSuccess }){
     const [documentTitle, setDocumentTitle] = useState("");
     const [category, setCategory] = useState("");
     const [file, setFile] = useState(null);
@@ -15,13 +15,12 @@ function DocumentUploadForm(){
         uploadDocument(formData)
             .then(() =>{
                 console.log("Document uploaded successfully");
+                onUploadSuccess();
             })
             .catch((error) =>{
                 console.error("Upload failed:", error);
             });
-        console.log(documentTitle);
-        console.log(category);
-        console.log(file);
+        
     }
     return (
         <div>
